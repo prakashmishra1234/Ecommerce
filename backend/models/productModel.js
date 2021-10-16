@@ -56,8 +56,7 @@ const productSchema = new mongoose.Schema ({
                 required:true
             },
             comment:{
-                typeL:String,
-                required:true
+                typeL:String
             }
         }
     ],
