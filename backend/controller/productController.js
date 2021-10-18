@@ -3,7 +3,6 @@ const ErrorHandler = require('../utils/errorhandler');
 const catchAsyncErrors = require('../middleware/catchAsyncErrors');
 const ApiFeatures = require('../utils/apifeatures');
 
-
 //Create Product --Admin
 exports.createProduct = catchAsyncErrors( async (req, res, next) => {
     const product = await Product.create(req.body);
