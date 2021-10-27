@@ -9943,7 +9943,7 @@
     "react" "15.x.x - 16.x.x"
     "tar" "2.2.2"
 
-"react-material-ui-carousel@^2.3.1":
+"react-material-ui-carousel@^2.3.5":
   "integrity" "sha512-laiysIaA47rX0/lIVjprX5MHrDyjLxgzAsyBnG8OKgO2ad5o3Pg88PAmu6RlMy/L/H6PKFYQ8H5bAqpeZETeYw=="
   "resolved" "https://registry.npmjs.org/react-material-ui-carousel/-/react-material-ui-carousel-2.3.5.tgz"
   "version" "2.3.5"
