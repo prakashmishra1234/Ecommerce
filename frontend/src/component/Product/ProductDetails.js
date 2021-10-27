@@ -3,7 +3,7 @@ import Carousel from 'react-material-ui-carousel';
 import './ProductDetails.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { getProductDetails } from '../../actions/productAction';
-import {ReactStars} from 'react-rating-stars-component';
+import ReactStars from 'react-rating-stars-component';
 
 const ProductDetails = ({match}) => {
     const dispatch = useDispatch();
