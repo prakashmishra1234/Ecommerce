@@ -7,11 +7,23 @@ import ProductCard from '../Home/ProductCard';
 import Pagination from 'react-js-pagination';
 import Slider from "@material-ui/core/Slider";
 import Typography from "@material-ui/core/Typography";
+import createTypography from '@material-ui/core/styles/createTypography';
+
+const categories = [
+    "Laptop",
+    "Footwear",
+    "Bottom",
+    "Tops",
+    "Attire",
+   "Camera",
+   "Smartphones"
+]
 
 function Products({match}) {
     const dispatch = useDispatch();
     const [currentPage, setCurrentPage] = useState(1);
     const [price, setPrice] = useState([0, 120000]);
+    const [category, setCategory] = useState("");
     const { products, loading, error, productsCount, resultPerPage } = useSelector((state) => state.products)
     const keyword = match.params.keyword;
     const setCurrentPageNo = (e) => {
@@ -21,8 +33,8 @@ function Products({match}) {
         setPrice(newPrice);
     }
     useEffect(() => {
-        dispatch(getProduct(keyword, currentPage, price))
-    }, [dispatch, keyword, currentPage, price]);
+        dispatch(getProduct(keyword, currentPage, price, category))
+    }, [dispatch, keyword, currentPage, price, category]);
     return (
         <Fragment>
             {loading ? (<Loader />) :
@@ -44,6 +56,18 @@ function Products({match}) {
                         min={0}
                         max={120000}
                     />
+                    <Typography>Categories</Typography>
+                        <ul className="categoryBox">
+                            {categories.map((category) => (
+                                <li
+                                className="category-link"
+                                key={category}
+                                onClick={() => setCategory(category)}
+                                >
+                                {category}
+                                </li>
+                            ))}
+                        </ul>
                 </div>
                 {resultPerPage < productsCount && (
                     <div className="paginationBox">
