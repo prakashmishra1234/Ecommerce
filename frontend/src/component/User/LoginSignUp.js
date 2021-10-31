@@ -6,10 +6,10 @@ import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import FaceIcon from "@material-ui/icons/Face";
 import { useDispatch, useSelector } from 'react-redux';
-import { clearErrors, login } from '../../actions/userAction';
+import { clearErrors, login, register } from '../../actions/userAction';
 import { useAlert } from 'react-alert';
 
-function LoginSignUp() {
+function LoginSignUp({history}) {
 
     const dispatch = useDispatch();
     const alert = useAlert();
@@ -44,8 +44,7 @@ function LoginSignUp() {
         myForm.set("email", email);
         myForm.set("password", password);
         myForm.set("avatar", avatar);
-        //dispatch(register(myForm));
-        console.log('signUp form submitted');
+        dispatch(register(myForm));
       };
 
       const registerDataChange = (e) => {
@@ -68,7 +67,10 @@ function LoginSignUp() {
             alert.error(error);
             dispatch(clearErrors());
           }
-      }, [dispatch, error, alert]);
+          if(isAuthenticated){
+              history.push('/account')
+          }
+      }, [dispatch, error, alert, history, isAuthenticated]);
 
     const switchTabs = (e, tab) => {
         if (tab === "login") {
