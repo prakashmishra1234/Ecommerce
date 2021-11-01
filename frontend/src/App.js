@@ -9,6 +9,8 @@ import ProductDetails  from './component/Product/ProductDetails.js';
 import Products from "./component/Product/Products";
 import Search from './component/Product/Search.js'
 import LoginSignUp from './component/User/LoginSignUp';
+import store from './store';
+import { loadUser } from './actions/userAction';
 
 function App() {
   React.useEffect(() => {
@@ -17,6 +19,7 @@ function App() {
         families: ["Roboto", "Droid Sans", "Chilanka"],
       },
     });
+    store.dispatch(loadUser());
   }, []);
   return (
     <Router>
